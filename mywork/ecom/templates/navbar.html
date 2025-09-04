@@ -1,0 +1,154 @@
+<!-- <header class="text-gray-600 body-font bg-slate-200 shadow-lg">
+    <div class="w-full flex  p-5  items-center justify-between ">
+        <a href="{% url 'homepage' %}" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0 bg-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="Purple" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Shopping cart"
+                class="w-6 h-6">
+                <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" />
+                <circle cx="9" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+            </svg>
+
+            <span class="ml-3 text-xl">E-commerce</span>
+        </a>
+        <nav class="flex flex-wrap items-center text-black justify-center bg-green-700">
+            <a href="{% url 'homepage' %}" class="mr-5 hover:text-gray-900">Home</a>
+            <a href="" class="mr-5 hover:text-gray-900">Service</a>
+            <a class="mr-5 hover:text-gray-900">Contact</a>
+            <a class="mr-5 hover:text-gray-900">Abouts Us</a>
+        </nav>
+        <div class="header-bar  text-black gap-2 mt-5 flex flex-1 bg-red-600">
+
+            {% if request.user.is_authenticated %}
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+
+                <button type="submit"
+                    class="border border-teal-500 bg-sky-300 px-4 py-2 rounded-lg">{{user.username}}</button>
+
+            </form>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input class="border border-red-500 bg-red-300 px-4 py-2  rounded-lg" type="submit" value="logout">
+
+            </form>
+
+            {% else %}
+
+            <a href="{% url 'login' %}" class="border border-sky-500 bg-sky-300 px-4 py-2  rounded-lg">Log In</a>
+
+            <a href="{% url 'admindashboard' %}" class="border border-sky-500 bg-sky-300 px-4 py-2 rounded-lg">Admin</a>
+
+
+            {% endif %}
+
+            <a href="{% url 'cart' %}" class="border border-sky-500 bg-sky-300 px-4 py-2 rounded-lg flex flex-1 gap-1 ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="teal" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+                <span>Cart</span>
+            </a>
+
+        </div>
+
+    </div>
+</header> -->
+
+<div>
+
+    <nav
+        class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="{% url 'homepage' %}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="Purple" stroke="currentColor"
+                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Shopping cart"
+                    class="w-6 h-6">
+                    <path d="M3 3h2l2.2 10.4a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6" />
+                    <circle cx="9" cy="20" r="1.5" />
+                    <circle cx="18" cy="20" r="1.5" />
+                </svg>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">E-commerce</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                
+                <div class="  text-black gap-2 justify-center flex  ">
+
+                    {% if request.user.is_authenticated %}
+
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+
+                        <button type="submit" class="border border-teal-500 bg-sky-300 px-4 py-2 rounded-lg">{{user.username}}</button>
+
+                    </form>
+
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <input class="border border-red-500 bg-red-300 px-4 py-2  rounded-lg cursor-pointer " type="submit"
+                            value="logout">
+
+                    </form>
+
+                    {% else %}
+
+                    <a href="{% url 'login' %}" class="border border-sky-500 bg-sky-300 px-4 py-2  rounded-lg">Log
+                        In</a>
+
+                    <a href="{% url 'admindashboard' %}"
+                        class="border border-sky-500 bg-sky-300 px-4 py-2 rounded-lg">Admin</a>
+
+
+                    {% endif %}
+
+                    <a href="{% url 'cart' %}"
+                        class="border border-sky-500 bg-sky-300 px-4 py-2 rounded-lg flex flex-1 gap-1 ">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="teal" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                        </svg>
+                        <span>Cart</span>
+                    </a>
+
+                </div>
+
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="{% url 'homepage' %}"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

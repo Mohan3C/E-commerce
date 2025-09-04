@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="bg-slate-100 w-full h-[89vh] gap-15">
+    <div class="w-full px-5 py-2 flex flex-1 justify-center items-center h-[35%]">
+        <span class="text-8xl font-bold text-slate-600">Your order is complete</span>
+
+    </div>
+    <div class="w-full flex flex-1 justify-center items-center mt- 5  mt-20 h-[15%]">
+        <a href="{% url 'homepage' %}" class="bg-yellow-400 rounded-lg px-5 py-2 ">Continue Shopping</a>
+    </div>
+</div>
+
+{% endblock %}

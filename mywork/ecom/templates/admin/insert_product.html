@@ -1,0 +1,30 @@
+{% extends "admin/admin_base.html" %}
+
+{% load tailwind_filters %}
+
+{% block content %}
+
+<div class="flex flex-col">
+    <h2 class="text-2xl font-semibold">
+        {% if form.instance.id %} Edit Product {% else %} Insert Product {% endif %}
+    </h2>
+
+    <form action="{% if form.instance.id %}
+                    {% url 'editproduct' form.instance.id %}
+                  {% else %}
+                    {% url 'insertproduct' %}
+                  {% endif %}"
+          method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <div class="mb-3">
+            <input type="submit" value="{% if form.instance.id %}Update{% else %}Save Product{% endif %}"
+                class="bg-teal-600 text-white px-3 py-2 w-full rounded cursor-pointer">
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load tailwind_filters %}
+
+<div class="flex flex-1 justify-center items-center h-[100vh]">
+    <div class="w-4/12 bg-sky-100 px-3 py-2 border rounded-lg ">
+        <h2 class="text-xl font-semibold mb-3">SignIn</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {{form|crispy}}
+
+            <div class="mb-3">
+                <input type="submit" value="Login" class="bg-teal-500 text-white px-3 p-2 w-full">
+            </div>
+
+        </form>
+
+        <span>I already have an <a href="{% url 'login' %}" class="underline text-blue-800">Account</a></span>
+    </div>
+</div>
+
+{% endblock %}
