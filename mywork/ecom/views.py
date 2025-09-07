@@ -167,27 +167,27 @@ def ordercomplete(request):
 
 
 @login_required()
-def addCoupon(req):
-  if req.method == "POST":
-    code = req.POST.get("code")
+def addCoupon(request):
+  if request.method == "POST":
+    code = request.POST.get("code")
     coupon  = Coupon.objects.filter(code=code)
     if coupon:
-        order = Order.objects.get(user=req.user, isordered=False)
+        order = Order.objects.get(user=request.user, isordered=False)
         if order.getpayableamount() > coupon[0].amount:
           order.coupon_id = coupon[0]
           order.save()
         else:
-          messages.add_message(req,messages.ERROR,  message="this Coupon is not applicable in this Order Amount")
+          messages.add_message(request,messages.ERROR,  message="this Coupon is not applicable in this Order Amount")
     else:
-      messages.add_message(req, messages.ERROR, message="This coupon is invalid or Expired")
+      messages.add_message(request, messages.ERROR, message="This coupon is invalid or Expired")
   return redirect(cart)             
 
         
 @login_required()
-def RemoveCoupon(req, coupon_id):
+def RemoveCoupon(request, coupon_id):
   coupon  = Coupon.objects.get(id=coupon_id)
   if coupon:
-    order = Order.objects.get(user=req.user, isordered=False)
+    order = Order.objects.get(user=request.user, isordered=False)
     order.coupon_id = None
     order.save()
     return redirect(cart) 
