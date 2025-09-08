@@ -170,11 +170,11 @@ def ordercomplete(request):
 def addCoupon(request):
   if request.method == "POST":
     code = request.POST.get("code")
-    coupon  = Coupon.objects.filter(code=code)
+    coupon  = Coupon.objects.filter(code=code).first()
     if coupon:
         order = Order.objects.get(user=request.user, isordered=False)
-        if order.getpayableamount() > coupon[0].amount:
-          order.coupon_id = coupon[0]
+        if order.getpayableamount() > coupon.amount:
+          order.coupon_id = coupon
           order.save()
         else:
           messages.add_message(request,messages.ERROR,  message="this Coupon is not applicable in this Order Amount")
